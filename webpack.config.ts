@@ -1,4 +1,4 @@
-import {Configuration} from 'webpack';
+import { Configuration } from 'webpack';
 import path from 'node:path';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
@@ -33,7 +33,11 @@ const config: Configuration = {
                 use: 'html-loader',
             },
             {
-                test: /\.(s|)[ca]ss$/,
+                test: /\.css$/,
+                use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
+            },
+            {
+                test: /\.s[ca]ss$/,
                 use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader', 'postcss-loader'],
             },
         ],
@@ -45,7 +49,16 @@ const config: Configuration = {
             minSize: 100_000,
         },
         minimizer: [
-            new CssMinimizerPlugin(),
+            new CssMinimizerPlugin({
+                minimizerOptions: {
+                    preset: [
+                        'default',
+                        {
+                            calc: false,
+                        },
+                    ],
+                },
+            }),
         ],
         minimize: true,
         runtimeChunk: 'single',
