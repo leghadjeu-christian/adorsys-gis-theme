@@ -3,14 +3,15 @@
 @plugin "daisyui" {
 
     themes: light --default;
-}theme {
+}
+
+theme {
     --color-primary: #2F2CF9;
     --color-secondary: #8498F4;
     --color-accent: #8498F4;
     --color-neutral: #101C25;
-    --color-base-100: #F8F9F
+    --color-base-100: #F8F9F9;
 
-@9;
     --color-info: #8498F4;
     --color-success: #90D033;
     --color-warning: #FFCB1D;

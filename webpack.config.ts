@@ -54,6 +54,8 @@ const config: Configuration = {
                     preset: [
                         'default',
                         {
+                            // Disable calc optimization - postcss-calc doesn't support modern CSS 'infinity' values used by Tailwind v4
+                            // See: https://github.com/postcss/postcss-calc/issues/220
                             calc: false,
                         },
                     ],

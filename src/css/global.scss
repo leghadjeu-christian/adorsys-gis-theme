@@ -21,10 +21,7 @@ p {
   @apply flex flex-col items-start justify-between mb-4;
 
   label {
-    & {
-      @apply text-sm;
-    }
-
+    @apply text-sm;
     @apply cursor-pointer;
   }
 }
